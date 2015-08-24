@@ -17,12 +17,14 @@ import javax.swing.text.DefaultCaret;
  */
 public class FillInScreen extends javax.swing.JFrame {
 
-    final String VERSION = "1.21";
+    final String VERSION = "1.22";
     final String SCREEN_TITLE = "Discripter: JIRA Description Generator v"+VERSION+" - Syariffudin";
     final String DATE = "August 2015";
     final String currentChanges = 
-            "1.21 - Improved Copy To Clipboard Screen\n";
-    final String versionHistory = 
+            "1.22 - Bug Killing (let me know if there's bugs still alive)"+
+            "\n";
+    final String versionHistory = ""+
+            "1.21 - Improved Copy To Clipboard Screen\n" +
             "1.20 - Added Guide Screen & some bug killing\n"+
             "1.10 - Changes on UI and Input Options\n"+
             "1.00 - Descripter was born";
@@ -68,7 +70,7 @@ public class FillInScreen extends javax.swing.JFrame {
         }
         else {
             screencap="\nScreen capture: " + screencaptureTextBox.getText();
-            screencap2=", refer to screen capture "+screencap;
+            screencap2=", refer to screen capture "+ screencaptureTextBox.getText();
         }
         
         if(screenNameTextBox.getText().isEmpty())
