@@ -13,7 +13,7 @@ import javax.swing.text.DefaultCaret;
 
 /**
  *
- * @author anonymous
+ * @author Syariffudin <syariffudinsapri@gmail.com>
  */
 public class FillInScreen extends javax.swing.JFrame {
 
@@ -32,6 +32,7 @@ public class FillInScreen extends javax.swing.JFrame {
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private int xLocation,yLocation;
     DefaultCaret caret;
+    
     /**
      * Creates new form MainScreen
      */

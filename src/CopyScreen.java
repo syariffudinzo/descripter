@@ -15,13 +15,14 @@ import javax.swing.Timer;
 
 /**
  *
- * @author anonymous
+ * @author Syariffudin <syariffudinsapri@gmail.com>
  */
 public class CopyScreen extends javax.swing.JPanel {
 
     String message;
     boolean copied=false;
     Color tempColor;
+    
     /**
      * Creates new form CopyScreen
      * @param message
@@ -35,6 +36,9 @@ public class CopyScreen extends javax.swing.JPanel {
         
     }
     
+    /**
+     * copy text from result textbox into windows clipboard
+     */
     public void copyAndPaste(){
         StringSelection ss = new StringSelection(resultsTextBox.getText());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

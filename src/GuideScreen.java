@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author anonymous
+ * @author Syariffudin <syariffudinsapri@gmail.com>
  */
 public class GuideScreen extends javax.swing.JPanel {
 
@@ -24,6 +24,9 @@ public class GuideScreen extends javax.swing.JPanel {
         initHelpScreenText();
     }
     
+    /**
+     * to initiate helpscreen
+     */
     public void initHelpScreenText(){
         JOptionPane.showMessageDialog(null,TEXT,
             "Purpose",JOptionPane.INFORMATION_MESSAGE);

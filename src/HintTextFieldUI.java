@@ -6,7 +6,8 @@
 
 /**
  *
- * @author anonymous
+ * @author From Mr Google
+ * @Compileby Syariffudin <syariffudinsapri@gmail.com>
  */
 import java.awt.Color;
 import java.awt.Graphics;
