@@ -11,6 +11,10 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="componentMoved" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentMoved"/>
+    <EventHandler event="windowStateChanged" listener="java.awt.event.WindowStateListener" parameters="java.awt.event.WindowEvent" handler="formWindowStateChanged"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -64,14 +68,14 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel12" min="-2" pref="52" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jScrollPane13" min="-2" pref="323" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane13" linkSize="6" min="-2" pref="323" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel4" min="-2" pref="87" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jScrollPane1" min="-2" pref="319" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane1" min="-2" pref="322" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -132,14 +136,14 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="clearScreenCaptureButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearActualButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearPageandAtButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearBriefButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearRoleButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearBrowserButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearStepsButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clearDocButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearScreenCaptureButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearActualButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearPageandAtButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearBriefButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearRoleButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearBrowserButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearStepsButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearDocButton" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="19" max="32767" attributes="0"/>
                               </Group>
@@ -155,9 +159,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel5" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="322" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" linkSize="6" min="-2" pref="322" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="clearExpectedButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearExpectedButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -186,18 +190,18 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="docTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="clearDocButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="docTextBox" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="clearDocButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="atTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="clearPageandAtButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="atTextBox" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearPageandAtButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="pageTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pageTextBox" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -205,43 +209,43 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="clearBriefButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="briefTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="clearBriefButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="briefTextBox" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="urlLocationTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="urlLocationTextBox" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
-                              <Component id="clearBrowserButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane7" linkSize="10" min="-2" max="-2" attributes="0"/>
+                              <Component id="clearBrowserButton" linkSize="2" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane9" pref="30" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane9" pref="24" max="32767" attributes="0"/>
                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="clearRoleButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearRoleButton" linkSize="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane12" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jScrollPane11" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane12" linkSize="10" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jScrollPane11" linkSize="10" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="roleTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="roleTextBox" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -252,8 +256,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jScrollPane10" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane10" linkSize="10" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace pref="7" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -262,14 +266,14 @@
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane1" linkSize="5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane4" linkSize="5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="screencaptureTextBox" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="screencaptureTextBox" linkSize="10" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -280,24 +284,24 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane13" linkSize="5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="generateDescriptionBUtton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="clearALLButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="generateDescriptionBUtton" linkSize="11" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="clearALLButton" linkSize="11" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="clearScreenCaptureButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearScreenCaptureButton" linkSize="2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="clearActualButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="clearExpectedButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearActualButton" linkSize="2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="clearExpectedButton" linkSize="2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="clearStepsButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearStepsButton" linkSize="2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>

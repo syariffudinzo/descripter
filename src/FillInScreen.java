@@ -1,5 +1,6 @@
 
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,13 +18,13 @@ import javax.swing.text.DefaultCaret;
  */
 public class FillInScreen extends javax.swing.JFrame {
 
-    final String VERSION = "1.22";
+    final String VERSION = "1.30";
     final String SCREEN_TITLE = "Discripter: JIRA Description Generator v"+VERSION+" - Syariffudin";
-    final String DATE = "August 2015";
+    final String DATE = "September 2015";
     final String currentChanges = 
-            "1.22 - Bug Killing (let me know if there's bugs still alive)"+
-            "\n";
+            VERSION+" - Better flow and small fix applied\n";
     final String versionHistory = ""+
+            "1.22 - Bug Killing (let me know if there's bugs still alive)\n"+
             "1.21 - Improved Copy To Clipboard Screen\n" +
             "1.20 - Added Guide Screen & some bug killing\n"+
             "1.10 - Changes on UI and Input Options\n"+
@@ -32,6 +33,11 @@ public class FillInScreen extends javax.swing.JFrame {
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private int xLocation,yLocation;
     DefaultCaret caret;
+    
+    JFrame frameCopyScreen,frameGuideScreen;
+    
+    Point currentMainScreenPosition;
+    
     
     /**
      * Creates new form MainScreen
@@ -42,6 +48,7 @@ public class FillInScreen extends javax.swing.JFrame {
         yLocation=dim.height/2-this.getSize().height/2;
         this.setLocation(xLocation, yLocation);
         this.setResizable(false);
+        this.pack();
         //checkMadotary();
     }
     
@@ -135,28 +142,30 @@ public class FillInScreen extends javax.swing.JFrame {
      * to initialize copyscreen
      */
     public void initCopyScreen(){
-        JFrame frame = new JFrame();
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setLocation(xLocation, yLocation);
-            frame.setTitle("Compiled Description");
-            frame.setSize(600,500);
-            frame.setResizable(false);
-            frame.add(new CopyScreen(getCompiledText()));
-            frame.setVisible(true);
+        frameCopyScreen = new JFrame();
+        frameCopyScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frameCopyScreen.setLocation(currentMainScreenPosition);
+        frameCopyScreen.setTitle("Compiled Description");
+        frameCopyScreen.setResizable(false);
+        frameCopyScreen.add(new CopyScreen(getCompiledText(),this));
+        frameCopyScreen.pack();
+        frameCopyScreen.setVisible(true);
+            
     }
     
     /**
      * to initialize HelpPicture
      */
     public void initHelpScreen(){
-        JFrame frame = new JFrame();
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setLocation(xLocation, yLocation);
-            frame.setTitle("Help Screen");
-            frame.setSize(758,670);
-            frame.setResizable(false);
-            frame.add(new GuideScreen());
-            frame.setVisible(true);
+        frameGuideScreen = new JFrame();
+        frameGuideScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frameGuideScreen.setLocation(currentMainScreenPosition);
+        frameGuideScreen.setTitle("Help Screen");
+        //frame.setSize(758,670);
+        frameGuideScreen.setResizable(false);
+        frameGuideScreen.add(new GuideScreen());
+        frameGuideScreen.pack();
+        frameGuideScreen.setVisible(true);
     }
 
     /**
@@ -220,7 +229,16 @@ public class FillInScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(SCREEN_TITLE);
-        setPreferredSize(new java.awt.Dimension(550, 660));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+        });
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setPreferredSize(new java.awt.Dimension(537, 844));
@@ -511,7 +529,7 @@ public class FillInScreen extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -587,6 +605,11 @@ public class FillInScreen extends javax.swing.JFrame {
                         .addComponent(clearALLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {clearActualButton, clearBriefButton, clearBrowserButton, clearDocButton, clearExpectedButton, clearPageandAtButton, clearRoleButton, clearScreenCaptureButton, clearStepsButton});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane13, jScrollPane4});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -628,10 +651,10 @@ public class FillInScreen extends javax.swing.JFrame {
                             .addComponent(clearBrowserButton)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                                 .addGap(1, 1, 1))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 68, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel10)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -651,7 +674,7 @@ public class FillInScreen extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(42, 42, 42)
@@ -674,19 +697,31 @@ public class FillInScreen extends javax.swing.JFrame {
                                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(generateDescriptionBUtton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearALLButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(generateDescriptionBUtton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clearALLButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(clearScreenCaptureButton)
                         .addGap(45, 45, 45)
                         .addComponent(clearActualButton)
-                        .addGap(69, 69, 69)
+                        .addGap(75, 75, 75)
                         .addComponent(clearExpectedButton)
                         .addGap(80, 80, 80)
                         .addComponent(clearStepsButton)
                         .addContainerGap())))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {clearActualButton, clearBriefButton, clearBrowserButton, clearDocButton, clearExpectedButton, clearPageandAtButton, clearRoleButton, clearScreenCaptureButton, clearStepsButton});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {briefTextBox, docTextBox, urlLocationTextBox});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane13, jScrollPane4});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {atTextBox, pageTextBox});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane10, jScrollPane11, jScrollPane12, jScrollPane7, roleTextBox, screencaptureTextBox});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {clearALLButton, generateDescriptionBUtton});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -757,16 +792,20 @@ public class FillInScreen extends javax.swing.JFrame {
 
     private void generateDescriptionBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateDescriptionBUttonActionPerformed
         // TODO add your handling code here:
-        if(checkTextBoxMaditory().equals("pass")){
+        if(checkTextBoxMaditory().equals("pass") && frameCopyScreen==null){
             initCopyScreen();
         }
+        else if(frameCopyScreen!=null && checkTextBoxMaditory().equalsIgnoreCase("pass")){
+            frameCopyScreen.dispose();
+            frameCopyScreen=null;
+        }
         else
-            JOptionPane.showMessageDialog(null,checkTextBoxMaditory(),"Warning!",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this,checkTextBoxMaditory(),"Warning!",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_generateDescriptionBUttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"Developed by: Syariffudin Sapri (syariffudin@live.com)\n"
+        JOptionPane.showMessageDialog(null,"Developed by: Syariffudin Sapri (syariffudinsapri@gmail.com)\n"
             + "Version: "+
                 VERSION +
              "\nDate: "+DATE +
@@ -893,6 +932,15 @@ public class FillInScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         initHelpScreen();
     }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
+
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        // TODO add your handling code here:
+        currentMainScreenPosition = this.getLocation();
+    }//GEN-LAST:event_formComponentMoved
 
     /**
      * @param args the command line arguments

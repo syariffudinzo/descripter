@@ -5,6 +5,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 /*
@@ -22,17 +23,20 @@ public class CopyScreen extends javax.swing.JPanel {
     String message;
     boolean copied=false;
     Color tempColor;
+    private final JFrame frame;
     
     /**
      * Creates new form CopyScreen
      * @param message
+     * @param frame
      */
-    public CopyScreen(String message) {
+    public CopyScreen(String message, JFrame frame) {
         initComponents();
         this.message=message;
-        //CopyIndicator.setVisible(false);
+        //FillInScreen.isOpen=true;
         resultsTextBox.setText(message);
         tempColor = resultsTextBox.getBackground();
+        this.frame = frame;
         
     }
     

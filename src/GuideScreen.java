@@ -28,7 +28,7 @@ public class GuideScreen extends javax.swing.JPanel {
      * to initiate helpscreen
      */
     public void initHelpScreenText(){
-        JOptionPane.showMessageDialog(null,TEXT,
+        JOptionPane.showMessageDialog(this,TEXT,
             "Purpose",JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -44,7 +44,6 @@ public class GuideScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagePackage/latestJIRA.PNG"))); // NOI18N
-        jLabel1.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -52,13 +51,11 @@ public class GuideScreen extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 206, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 125, Short.MAX_VALUE))
+            .addComponent(jLabel1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
